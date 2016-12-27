@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans|Roboto+Condensed" rel="stylesheet">
     <script
      src="https://code.jquery.com/jquery-3.1.1.js"
      integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
@@ -14,6 +15,12 @@
     <style media="screen">
     button{
        background-color: white;
+     }
+     *{
+       font-family: 'Droid Sans', sans-serif;
+     }
+     .row{
+       align-items: flex-start
      }
     </style>
     <h1>Calculadora de envio</h1>
@@ -93,6 +100,8 @@
           } else {
             console.log("Introduce una cantidad valida");
           }
+        } else if ( modelo == "bw250") {
+
         }
 
       }
