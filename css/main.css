@@ -1,0 +1,22 @@
+*{
+  font-family: 'Droid Sans', sans-serif;
+}
+h1{
+  text-align: center;
+  padding: 10px;
+
+}
+button{
+   background-color: white;
+ }
+ .button{
+
+ }
+ .row{
+   align-items: flex-start;
+   padding: 20px;
+ }
+ #resultado{
+   border-style: solid;
+   padding: 15px;
+ }
