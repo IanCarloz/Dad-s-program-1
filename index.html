@@ -13,7 +13,10 @@
   </head>
   <body>
     <link rel="stylesheet" href="css/main.css">
-    <h1>Calculadora de envio</h1>
+    <div id="titulo">
+      <h1>Calculadora de envio</h1>
+      <h3>(beta)</h3>
+    </div>
     <div class="row">
     <div class="three columns">
     <label for="modelo"> Modelo </label>
@@ -32,15 +35,10 @@
     </div>
     <div class="three columns">
     <label for="estado">Estado</label>
-    <select id="estado" name="estado">
-      <option value="ch">Chiapas</option>
-      <option value="mi">Michoacán</option>
-      <option value="oa">Oaxaca</option>
-      <option value="si">Sinaloa</option>
-      <option value="so">Sonora</option>
-      <option value="ta">Tabasco</option>
-      <option value="ve">Veracruz</option>
-      <option value="za">Zacatecaz</option>
+    <select id="estado" name="estado" onchange="fillOther()">
+
+    </select>
+    <select id="destino" name="destino">
     </select>
     </div>
     <div class="three columns">

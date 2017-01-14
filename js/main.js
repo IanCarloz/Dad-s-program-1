@@ -46,72 +46,103 @@ var modelos = [{
 
 var envio = [{
   estado:'chiapas',
-  destino:{
-    san_cristobal:{
+  destino:[
+    {
+      name:'san cristobal',
       truck:22200,
       torthon:26400,
       trailer:28100
     },
-    tuxtla_gutierrez:{
+    {
+      name:'tuxtla_gutierrez',
       truck:22200,
       torthon:26400,
       trailer:28100
     },
-    comitan:{
+    {
+      name:'comitan',
       truck:22800,
       torthon:27300,
       trailer:28600
     },
-    tapachula:{
+    {
+      name:'tapachula',
       truck:25600,
       torthon:2800,
       trailer:30200
     },
-    ocostingo:{
+    {
+      name:'ocostingo',
       truck:26800,
       torthon:28000,
       trailer:30200
     }
-  }
+  ]
 },{
-  estado:'michoacan',
-  destino:{
-    morelia:{
-      truck:11200,
-      torthon:12900,
-      trailer:15900
-    },
-    uruapan:{
-      truck:12600,
-      torthon:13500,
-      trailer:1700
-    }
+    estado: 'michoacan',
+    destino: [
+      {
+        name:'morelia',
+        truck: 11200,
+        torthon: 12900,
+        trailer: 15900
+      },
+      {
+        name:'uruapan',
+        truck: 12600,
+        torthon: 13500,
+        trailer: 1700
+      }
+    ]
+  },
+  {
+    estado: 'oaxaca',
+    destino:[
+        {
+            name: 'oaxaca',
+            truck: 14700,
+            torthon: 15900,
+            trailer: 22200
+        },
+        {
+            name: 'salina_cruz',
+            truck: 18200,
+            torthon: 18600,
+            trailer: 23400
+        }
+    ]
+}, {
+    estado: 'sinaloa',
+    destino:[
+      {
+        name:'mazatlan',
+        truck: 22300,
+        torthon: 25300,
+        trailer: 31100
+      }
+    ]
   }
-},{
-  estado:'oaxaca',
-  destino:{
-    oaxaca:{
-      truck:14700,
-      torthon:15900,
-      trailer:22200
-    },
-    salina_cruz:{
-      truck:18200,
-      torthon:18600,
-      trailer:23400
-    }
-  }
-},{
-  estado:'sinaloa',
-  destino:{
-    mazatlan:{
-      truck:22300,
-      torthon:25300,
-      trailer:31100
-    }
+];
+
+for (var j = 0; j < envio.length; j++) {
+  $('#estado').append($('<option>',{
+    value:j,
+    text:envio[j].estado
+  }));
+}
+
+function fillOther(){
+  var valorestado = $('#estado').val();
+  $('#destino').empty()
+  for (var k = 0; k < envio[valorestado].destino.length; k++) {
+    $('#destino').append($('<option>',{
+      value:k,
+      text:envio[valorestado].destino[k].name
+    }));
   }
 }
-];
+
+fillOther();
 
 var settings = {
   modelo:'',
@@ -151,7 +182,9 @@ function ggg(){
   }
   console.log(units);
   show();
-  console.log("--- " + envio[0].estado + envio[0].destino.san_cristobal.truck);
+  console.log("--- " + envio[0].estado +" "+ envio[0].length +" "+ envio[0].destino.san_cristobal.truck);
+
+  console.log(" ggg "+envio[$('#estado').val()].destino[$('#destino').val()]+" ");
 }
 
 function getUnits(cantidad, obj){
@@ -180,17 +213,22 @@ function compare(cantidad, obj){
   }
 }
 
-// function fillSelect2(){
-//   var estado_selected = $("#estado").val();
-//   for (var i = 0; i < envio.length; i++) {
-//     if (envio[i].estado == estado_selected) {
-//       console.log(envio[i].destino.);
-//     }
-//   }
-//   var destino_actual = envio.estado_selected;
-//   console.log(estado_selected + " - " + destino_actual + "*");
-// }
+function hola(){
+  var estado = $()
+}
+
+/*
+function fillSelect2(){
+  var estado_selected = $("#estado").val();
+  for (var i = 0; i < envio.length; i++) {
+    if (envio[i].estado == estado_selected) {
+      console.log(envio[i].destino);
+    }
+  }
+  var destino_actual = envio.estado_selected;
+  console.log(estado_selected + " - " + destino_actual + "*");
+}
 
 function show(){
-  $("#resultado").html("Camioneta 3.5 ton: " + units.truck + " Torthon: "+ units.torthon + " Trailer: " + units.trailer);
-}
+  $("#resultado").html("Truck: " + units.truck + " Torthon: "+ units.torthon + " Trailer: " + units.trailer);
+}*/
