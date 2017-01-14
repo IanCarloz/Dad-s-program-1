@@ -1,4 +1,3 @@
-
 var modelos = [{
     code:'BT250',
     unit:{
@@ -54,7 +53,7 @@ var envio = [{
       trailer:28100
     },
     {
-      name:'tuxtla_gutierrez',
+      name:'tuxtla gutierrez',
       truck:22200,
       torthon:26400,
       trailer:28100
@@ -105,7 +104,7 @@ var envio = [{
             trailer: 22200
         },
         {
-            name: 'salina_cruz',
+            name: 'salina cruz',
             truck: 18200,
             torthon: 18600,
             trailer: 23400
@@ -119,6 +118,146 @@ var envio = [{
         truck: 22300,
         torthon: 25300,
         trailer: 31100
+      },{
+        name: 'culiacan',
+        truck: 25300,
+        torthon: 26800,
+        trailer: 32900
+      },{
+        name: 'guamuchil',
+        truck: 29400,
+        torthon: 31100,
+        trailer: 36400
+      },{
+        name: 'guasave',
+        truck: 29400,
+        torthon: 31100,
+        trailer: 36400
+      },{
+        name: 'los mochis',
+        truck: 29400,
+        torthon: 31100,
+        trailer: 36400
+      }
+    ]
+  },{
+    estado: 'sonora',
+    destino: [
+      {
+        name: 'novojoa',
+        truck: 32900,
+        torthon: 35000,
+        trailer: 42300
+      },{
+        name: 'cd. obregon',
+        truck: 32900,
+        torthon: 3500,
+        trailer: 42300
+      },{
+        name: 'guayamas',
+        truck: 37600,
+        torthon: 40000,
+        trailer: 45800
+      },{
+        name: 'hermosillo',
+        truck: 35800,
+        torthon: 40000,
+        trailer: 45800
+      },{
+        name: 'agua prieta',
+        truck: 41100,
+        torthon: 46400,
+        trailer: 64600
+      },{
+        name: 'santa ana',
+        truck: 48200,
+        torthon: 49900,
+        trailer: 68200
+      },{
+        name: 's.l. rio colorado',
+        truck: 48200,
+        torthon: 49900,
+        trailer: 68200
+      }
+    ]
+  },{
+    estado: 'tabasco',
+    destino:[
+      {
+        name: 'villa hermosa',
+        truck: 17900,
+        torthon: 20600,
+        trailer: 24100
+      }
+    ]
+  },{
+    estado: 'veracruz',
+    destino:[
+      {
+        name: 'cordoba',
+        truck: 10300,
+        torthon: 11400,
+        trailer: 15200
+      },{
+        name: 'florentin de las flores',
+        truck: 10500,
+        torthon: 11400,
+        trailer: 15200
+      },{
+        name: 'naranjos',
+        truck: 10500,
+        torthon: 11400,
+        trailer: 15200
+      },{
+        name: 'poza rica',
+        truck: 10500,
+        torthon: 11400,
+        trailer: 15200
+      },{
+        name: 'tuxpan',
+        truck: 10500,
+        torthon: 11400,
+        trailer: 15200
+      },{
+        name: 'xalapa',
+        truck: 10000,
+        torthon: 11400,
+        trailer: 15500
+      },{
+        name: 'veracruz',
+        truck: 11000,
+        torthon: 14000,
+        trailer: 15500
+      },{
+        name: 'boca del rio',
+        truck: 11600,
+        torthon: 14000,
+        trailer: 15500
+      },{
+        name: 'coatzacoalcos',
+        truck: 13500,
+        torthon: 15000,
+        trailer: 17600
+      },{
+        name: 'minatitlan',
+        truck: 13500,
+        torthon: 15000,
+        trailer: 17600
+      }
+    ]
+  },{
+    estado: 'zacatecas',
+    destino: [
+      {
+        name: 'zacatecas',
+        truck: 12900,
+        trothon: 14000,
+        trailer: 1700
+      },{
+        name: 'fresnillo',
+        truck: 14000,
+        torthon: 15200,
+        trailer: 18400
       }
     ]
   }
@@ -133,7 +272,7 @@ for (var j = 0; j < envio.length; j++) {
 
 function fillOther(){
   var valorestado = $('#estado').val();
-  $('#destino').empty()
+  $('#destino').empty();
   for (var k = 0; k < envio[valorestado].destino.length; k++) {
     $('#destino').append($('<option>',{
       value:k,
@@ -182,8 +321,6 @@ function ggg(){
   }
   console.log(units);
   show();
-  console.log("--- " + envio[0].estado +" "+ envio[0].length +" "+ envio[0].destino.san_cristobal.truck);
-
   console.log(" ggg "+envio[$('#estado').val()].destino[$('#destino').val()]+" ");
 }
 
@@ -213,22 +350,6 @@ function compare(cantidad, obj){
   }
 }
 
-function hola(){
-  var estado = $()
-}
-
-/*
-function fillSelect2(){
-  var estado_selected = $("#estado").val();
-  for (var i = 0; i < envio.length; i++) {
-    if (envio[i].estado == estado_selected) {
-      console.log(envio[i].destino);
-    }
-  }
-  var destino_actual = envio.estado_selected;
-  console.log(estado_selected + " - " + destino_actual + "*");
-}
-
 function show(){
   $("#resultado").html("Truck: " + units.truck + " Torthon: "+ units.torthon + " Trailer: " + units.trailer);
-}*/
+}
