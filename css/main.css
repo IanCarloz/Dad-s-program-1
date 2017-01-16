@@ -3,6 +3,7 @@ body{
 }
 *{
   font-family: 'Droid Sans', sans-serif;
+  align-items: center;
 }
 #titulo{
   padding: 5px;
@@ -18,10 +19,10 @@ button{
  }
  .row{
    align-items: flex-start;
-   padding: 20px;
+   padding: 15px;
  }
  #resultado{
    border-style: solid;
    padding: 15px;
-   font-size: 30px
+   font-size: 25px;
  }

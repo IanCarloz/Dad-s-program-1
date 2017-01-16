@@ -263,6 +263,30 @@ var envio = [{
   }
 ];
 
+var costo_maniobras = [{
+  nivel: 0,
+  costo:{
+    truck: 900,
+    torthon: 2100,
+    trailer: 2700
+  }
+},{
+  nivel: 1,
+  costo:{
+    truck: 1400,
+    torthon: 2700,
+    trailer: 3300
+  }
+},{
+  nivel: 2,
+  costo:{
+    truck: 1900,
+    torthon: 3100,
+    trailer: 4000
+  }
+}
+];
+
 for (var j = 0; j < envio.length; j++) {
   $('#estado').append($('<option>',{
     value:j,
@@ -371,6 +395,10 @@ function costo1(estado, destino, obj){
   console.log("costo = " + costo_total);
 }
 
+function costo2(){
+
+}
+
 function show(){
-  $("#resultado").html("Truck: " + units.truck + " Torthon: "+ units.torthon + " Trailer: " + units.trailer + " = $" + costo_total);
+  $("#resultado").html("Truck x " + units.truck + " + Torthon x "+ units.torthon + " + Trailer x " + units.trailer + " = $" + costo_total);
 }
