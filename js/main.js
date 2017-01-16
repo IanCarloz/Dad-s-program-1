@@ -67,7 +67,7 @@ var envio = [{
     {
       name:'tapachula',
       truck:25600,
-      torthon:2800,
+      torthon:28000,
       trailer:30200
     },
     {
@@ -90,7 +90,7 @@ var envio = [{
         name:'uruapan',
         truck: 12600,
         torthon: 13500,
-        trailer: 1700
+        trailer: 17000
       }
     ]
   },
@@ -151,7 +151,7 @@ var envio = [{
       },{
         name: 'cd. obregon',
         truck: 32900,
-        torthon: 3500,
+        torthon: 35000,
         trailer: 42300
       },{
         name: 'guayamas',
@@ -252,7 +252,7 @@ var envio = [{
         name: 'zacatecas',
         truck: 12900,
         trothon: 14000,
-        trailer: 1700
+        trailer: 17000
       },{
         name: 'fresnillo',
         truck: 14000,
@@ -287,6 +287,7 @@ var settings = {
   modelo:'',
   cantidad:0,
   estado:'',
+  destino:'',
   maniobras:0
 };
 
@@ -296,6 +297,8 @@ var units = {
   trailer:0
 };
 
+var costo_total = 0;
+
 function x(){
   units = {
     truck:0,
@@ -304,8 +307,9 @@ function x(){
   };
 
   settings.modelo = $('#modelo').val();
-  settings.estado = $('#estado').val();
   settings.cantidad = $('#cantidad').val();
+  settings.estado = $('#estado').val();
+  settings.destino = $('#destino').val();
   settings.maniobras = $('#maniobras').val();
   console.log(settings);
 }
@@ -320,8 +324,9 @@ function ggg(){
     }
   }
   console.log(units);
+  console.log(" ggg "+envio[$('#estado').val()].destino[$('#destino').val()].truck+" ");
+  costo1();
   show();
-  console.log(" ggg "+envio[$('#estado').val()].destino[$('#destino').val()]+" ");
 }
 
 function getUnits(cantidad, obj){
@@ -350,6 +355,22 @@ function compare(cantidad, obj){
   }
 }
 
+function costo1(estado, destino, obj){
+  costo_total = 0;
+  console.log("x - " + settings.units + estado + destino + obj + destino + envio[0].destino[0].truck);
+  console.log("||- "+envio[$('#estado').val()].destino[$('#destino').val()].torthon+" ");
+  if (units.truck > 0) {
+    costo_total = costo_total + envio[$('#estado').val()].destino[$('#destino').val()].truck * units.truck;
+  }
+  if (units.torthon > 0) {
+    costo_total = costo_total + envio[$('#estado').val()].destino[$('#destino').val()].torthon * units.torthon;
+  }
+  if (units.trailer > 0) {
+    costo_total = costo_total + envio[$('#estado').val()].destino[$('#destino').val()].trailer * units.trailer;
+  }
+  console.log("costo = " + costo_total);
+}
+
 function show(){
-  $("#resultado").html("Truck: " + units.truck + " Torthon: "+ units.torthon + " Trailer: " + units.trailer);
+  $("#resultado").html("Truck: " + units.truck + " Torthon: "+ units.torthon + " Trailer: " + units.trailer + " = $" + costo_total);
 }
