@@ -43,14 +43,20 @@
     </div>
     <div class="three columns">
     <label for="maniobras">Maniobras</label>
-    <select id="maniobras" name="maniobras">
-      <option value="1er">Primer nivel</option>
-      <option value="2do">Segundo nivel</option>
+    <select id="maniobras" name="maniobras" onchange="costo2()">
+      <option value="0">A piso</option>
+      <option value="1">Primer nivel</option>
+      <option value="2">Segundo nivel</option>
     </select>
     </div>
     </div>
     <button onclick="ggg()" class="u-full-width"> CALCULAR </button>
-    <div id="resultado"></div>
+    <div id="resultado">
+      <p id="unidades"></p>
+      <p id="costoenvio"></p>
+      <p id="costomaniobras"></p>
+      <p id="costototal"></p>
+    </div>
     <script src="js/main.js"></script>
   </body>
 </html>

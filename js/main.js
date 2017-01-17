@@ -263,27 +263,21 @@ var envio = [{
   }
 ];
 
-var costo_maniobras = [{
+var maniobras = [{
   nivel: 0,
-  costo:{
     truck: 900,
     torthon: 2100,
     trailer: 2700
-  }
 },{
   nivel: 1,
-  costo:{
     truck: 1400,
     torthon: 2700,
     trailer: 3300
-  }
 },{
   nivel: 2,
-  costo:{
     truck: 1900,
     torthon: 3100,
     trailer: 4000
-  }
 }
 ];
 
@@ -321,7 +315,9 @@ var units = {
   trailer:0
 };
 
-var costo_total = 0;
+var costo_envio;
+var costo_maniobras;
+var costo_total;
 
 function x(){
   units = {
@@ -348,8 +344,10 @@ function ggg(){
     }
   }
   console.log(units);
-  console.log(" ggg "+envio[$('#estado').val()].destino[$('#destino').val()].truck+" ");
+  // console.log(" ggg "+envio[$('#estado').val()].destino[$('#destino').val()].truck+" ");
   costo1();
+  costo2();
+  total();
   show();
 }
 
@@ -380,25 +378,43 @@ function compare(cantidad, obj){
 }
 
 function costo1(estado, destino, obj){
-  costo_total = 0;
-  console.log("x - " + settings.units + estado + destino + obj + destino + envio[0].destino[0].truck);
-  console.log("||- "+envio[$('#estado').val()].destino[$('#destino').val()].torthon+" ");
+  costo_envio = 0;
+  // console.log("x - " + settings.units + estado + destino + obj + destino + envio[0].destino[0].truck);
+  // console.log("||- "+envio[$('#estado').val()].destino[$('#destino').val()].torthon+" ");
   if (units.truck > 0) {
-    costo_total = costo_total + envio[$('#estado').val()].destino[$('#destino').val()].truck * units.truck;
+    costo_envio = costo_envio + envio[$('#estado').val()].destino[$('#destino').val()].truck * units.truck;
   }
   if (units.torthon > 0) {
-    costo_total = costo_total + envio[$('#estado').val()].destino[$('#destino').val()].torthon * units.torthon;
+    costo_envio = costo_envio + envio[$('#estado').val()].destino[$('#destino').val()].torthon * units.torthon;
   }
   if (units.trailer > 0) {
-    costo_total = costo_total + envio[$('#estado').val()].destino[$('#destino').val()].trailer * units.trailer;
+    costo_envio = costo_envio + envio[$('#estado').val()].destino[$('#destino').val()].trailer * units.trailer;
   }
-  console.log("costo = " + costo_total);
+  console.log(" envio = " + costo_envio);
 }
 
 function costo2(){
+  costo_maniobras = 0;
+  if (units.truck > 0) {
+    costo_maniobras = costo_maniobras + maniobras[$('#maniobras').val()].truck * units.truck;
+  }
+  if (units.torthon > 0) {
+    costo_maniobras = costo_maniobras + maniobras[$('#maniobras').val()].torthon * units.torthon;
+  }
+  if (units.trailer > 0) {
+    costo_maniobras = costo_maniobras + maniobras[$('#maniobras').val()].trailer * units.trailer;
+  }
+  console.log( ' maniobras = ' + costo_maniobras);
+  // console.log(maniobras[$('#maniobras').val()].trailer);
+}
 
+function total(){
+  costo_total = costo_envio + costo_maniobras;
 }
 
 function show(){
-  $("#resultado").html("Truck x " + units.truck + " + Torthon x "+ units.torthon + " + Trailer x " + units.trailer + " = $" + costo_total);
+  $("#unidades").html("Truck: " + units.truck + " Torthon: "+ units.torthon + " Trailer: " + units.trailer );
+  $("#costoenvio").html(" Envio = $" + costo_envio);
+  $("#costomaniobras").html(" Maniobras = $" + costo_maniobras);
+  $('#costototal').html('Total = $' + costo_total);
 }
