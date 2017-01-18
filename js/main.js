@@ -348,6 +348,7 @@ function ggg(){
   costo1();
   costo2();
   total();
+  formato();
   show();
 }
 
@@ -390,6 +391,9 @@ function costo1(estado, destino, obj){
   if (units.trailer > 0) {
     costo_envio = costo_envio + envio[$('#estado').val()].destino[$('#destino').val()].trailer * units.trailer;
   }
+  console.log('truck' + envio[$('#estado').val()].destino[$('#destino').val()].truck);
+  console.log('torthon' + envio[$('#estado').val()].destino[$('#destino').val()].torthon);
+  console.log('trailer' + envio[$('#estado').val()].destino[$('#destino').val()].trailer);
   console.log(" envio = " + costo_envio);
 }
 
@@ -412,9 +416,19 @@ function total(){
   costo_total = costo_envio + costo_maniobras;
 }
 
+var enviochido;
+var maniobraschido;
+var totalchido;
+
+function formato(){
+  enviochido = numeral(costo_envio).format('$0,0.00');
+  maniobraschido = numeral(costo_maniobras).format('$0,0.00');
+  totalchido = numeral(costo_total).format('$0,0.00');
+}
+
 function show(){
   $("#unidades").html("Truck: " + units.truck + " Torthon: "+ units.torthon + " Trailer: " + units.trailer );
-  $("#costoenvio").html(" Envio = $" + costo_envio);
-  $("#costomaniobras").html(" Maniobras = $" + costo_maniobras);
-  $('#costototal').html('Total = $' + costo_total);
+  $("#costoenvio").html(" Envio = " + enviochido);
+  $("#costomaniobras").html(" Maniobras = " + maniobraschido);
+  $('#costototal').html('Total = ' + totalchido);
 }
