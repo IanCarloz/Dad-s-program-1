@@ -4,6 +4,14 @@ var modelos = [{
       trailer:680,
       torthon:250,
       truck:60
+    },
+    precios:{
+      60:2648,
+      99:2229,
+      249:2104,
+      499:1872,
+      999:1783,
+      1000:1747
     }
   },{
     code:'BW250',
@@ -350,6 +358,11 @@ function ggg(){
   total();
   formato();
   show();
+  costo_butacas();
+}
+
+function costo_butacas(){
+  console.log('* ' + modelos.precios[1]);
 }
 
 function getUnits(cantidad, obj){
